@@ -53,3 +53,17 @@ input, select, textarea {
     padding: 5px;
     margin-bottom: 10px;
 }
+
+.video-canto {
+    position: fixed;
+    top: 200px;     
+    left: 30px;    
+    width: 370px;  
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000; 
+
+
+
+
+}
