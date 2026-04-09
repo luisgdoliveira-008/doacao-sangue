@@ -73,7 +73,8 @@ input, select, textarea {
     border-radius: 10px;
 }
 
-
 .tabela {
-    
+    display: flex;
+    justify-content: center; /* Centraliza a imagem horizontalmente */
+    padding: 20px;
 }
