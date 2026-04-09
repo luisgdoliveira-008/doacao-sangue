@@ -1,0 +1,81 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulário De Adoção</title>   
+</head>
+
+<body>
+<header>
+    <nav class="titulo_fixado">
+      <h1>DOE SANGUE!</h1>
+        <img id="icon" src="https://img.freepik.com/vetores-gratis/coracao-do-dia-mundial-do-doador-de-sangue-e-gota-de-sangue-com-cartaz-de-conceito-de-linha-de-batimentos-cardiacos_1017-38605.jpg?semt=ais_hybrid&w=740&q=80" alt="dog">
+    </nav>
+</header>
+
+    <div class="formulario">
+        <form id="formAdocao">
+            <br>
+            <br>
+              <center><label for="nome">Nome:</label>
+                <br>
+            <input type="text" id="nome" placeholder="Digite seu nome" required>
+            <br>
+            <br>
+              <center><label for="email">Email:</label>
+                <br>
+            <input type="text" id="email" placeholder="Digite seu email" required>
+            <br>
+            <br>
+              <center><label for="telefone">Telefone:</label>
+                <br>
+            <input type="telefone" id="telefone" placeholder="(XX) XXXXX-XXXX" required>
+            <br>
+            <br>
+              <center><label for="peso">Peso:</label>
+                <br>
+            <input type="peso" id="peso" placeholder="Digite seu peso" required>
+            <br>
+            <br>
+              <center><label for="idade">Idade:</label>
+                <br>
+            <input type="idade" id="idade" placeholder="EX: 20" required>
+            <br>
+            <br>
+            <center><label for="tipo">Tipo sanguineo:</label>
+                <br>
+                <select name="tipo" id="tipo">
+                    <option value="">Selecione</option>
+                    <option value="casa">A+</option>
+                    <option value="casa">A</option>
+                    <option value="casa">O+</option>
+                    <option value="casa">O-</option>
+                    <option value="casa">AB+</option>
+                    <option value="casa">AB-</option>
+                    <option value="casa">B+</option>
+                    <option value="casa">B-</option>                    
+                </select>
+            <br>
+            <br>
+            <center><label for="estado">Estado:</label>
+                <br>
+            <input type="text" id="nome" placeholder="Digite seu estado" required>
+            <br>
+            <br>
+            <center><label for="cidade">Cidade:</label>
+            <br>
+            <input type="text" id="nome" placeholder="Digite seu estado" required>  
+            <br>
+            <br>
+            <center><button type="submit">sign in</button></center>
+        </form>
+        <div id="mensagem" class="error"></div>
+        
+        <h2>Doadores Cadastrados</h2>
+        <ul id="listaDoadores"></ul>
+    </div>
+    </div> 
+</body>
+</html>  
