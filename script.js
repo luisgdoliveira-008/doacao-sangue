@@ -1,91 +1,37 @@
-// Array para armazenar os doadores
-const doadores = [];
+const form = document.getElementById("formDoacao");
 
-const form = document.getElementById('doadorForm');
-const mensagemErro = document.getElementById('mensagem');
-const listaDoadoresUI = document.getElementById('listaDoadores');
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
-    mensagemErro.innerText = ""; // Limpa erros anteriores
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const telefone = document.getElementById("telefone").value;
+    const idade = +document.getElementById("idade").value;
+    const peso = +document.getElementById("peso").value;
+    const cidade = document.getElementById("cidade").value;
+    const estado = document.getElementById("Estado").value;
+    const sanguineo = document.getElementById("sanguineo").value;
 
-    // Captura de valores
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const idade = parseInt(document.getElementById('idade').value);
-    const peso = parseFloat(document.getElementById('peso').value);
-    const tipo = document.getElementById('tipo').value;
-    const telefone = document.getElementById('telefone').value.trim();
-    const cidade = document.getElementById('cidade').value.trim();
-    const estado = document.getElementById('estado').value.trim();
+    if (nome.length < 3) return alert("Nome inválido");
+    if (!email.includes("@")) return alert("Email inválido");
+    if (telefone.length < 10) return alert("Telefone inválido");
+    if (idade <= 16) return alert("Idade minima 16 anos");
+    if (!sanguineo) return alert("Selecione um tipo sanguineo");
+    if (peso < 50) return alert("Peso baixo demais para a doação.");
+    if (!cidade) return alert("Informe a cidade");
+    if (!estado) return alert("Informe o estado");
 
-    let erros = [];
+    let informações = [{
+        nome,
+        email,
+        idade,
+        peso,
+        tipoSanguineo: sanguineo,
+        telefone,
+        cidade,
+        estado
+    }];
 
-    // --- VALIDAÇÕES ---
-    
-    // 1. Nome completo (pelo menos nome e sobrenome)
-    if (nome.split(' ').length < 2) {
-        erros.push("O nome deve conter nome e sobrenome.");
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        erros.push("Insira um e-mail válido.");
-    }
-
-    if (idade < 16) {
-        erros.push("A idade mínima para doação é 16 anos.");
-    }
-
-    if (peso < 50) {
-        erros.push("O peso mínimo para doação é 50kg.");
-    }
-
-    if (tipoSanguineo === "") {
-        erros.push("Selecione um tipo sanguíneo.");
-    }
-
-    const telefoneNumerico = telefone.replace(/\D/g, ''); // Remove o que não for número
-    if (telefone !== telefoneNumerico || telefone === "") {
-        erros.push("O telefone deve conter apenas números.");
-    }
-
-
-    if (erros.length > 0) {
-        mensagemErro.innerText = erros.join("\n");
-    } else {
-        
-        // Criar objeto do doador
-        const novoDoador = {
-            nome,
-            email,
-            idade,
-            peso,
-            tipoSanguineo,
-            telefone,
-            cidade,
-            estado
-        };
-
-        // Adicionar ao array
-        doadores.push(novoDoador);
-
-        // Exibir no console conforme solicitado
-        console.log("Doador cadastrado com sucesso!", novoDoador);
-        console.log("Lista completa de doadores:", doadores);
-
-        // Atualizar a tela
-        atualizarLista();
-        form.reset();
-        alert("Cadastro realizado com sucesso!");
-    }
+    alert("Formulário enviado!");
+    alert(JSON.stringify(informações, null, ));
 });
-
-function atualizarLista() {
-    listaDoadoresUI.innerHTML = "";
-    doadores.forEach(d => {
-        const li = document.createElement('li');
-        li.innerText = `${d.nome} | ${d.tipoSanguineo} | ${d.cidade}-${d.estado}`;
-        listaDoadoresUI.appendChild(li);
-    });
-}
