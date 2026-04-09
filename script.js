@@ -10,13 +10,13 @@ form.addEventListener("submit", function (e) {
     const peso = +document.getElementById("peso").value;
     const cidade = document.getElementById("cidade").value;
     const estado = document.getElementById("Estado").value;
-    const sanguineo = document.getElementById("sanguineo").value;
+    const tipo = document.getElementById("tipo").value;
 
     if (nome.length < 3) return alert("Nome inválido");
     if (!email.includes("@")) return alert("Email inválido");
     if (telefone.length < 10) return alert("Telefone inválido");
     if (idade <= 16) return alert("Idade minima 16 anos");
-    if (!sanguineo) return alert("Selecione um tipo sanguineo");
+    if (!tipo) return alert("Selecione um tipo sanguineo");
     if (peso < 50) return alert("Peso baixo demais para a doação.");
     if (!cidade) return alert("Informe a cidade");
     if (!estado) return alert("Informe o estado");
@@ -26,7 +26,7 @@ form.addEventListener("submit", function (e) {
         email,
         idade,
         peso,
-        tipoSanguineo: sanguineo,
+        tipo: tipo,
         telefone,
         cidade,
         estado
